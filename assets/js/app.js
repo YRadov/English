@@ -6,8 +6,8 @@ var home_app = new Vue({
             en: true
         },
         wordCnt: 0,
-        //category: Category[1].name,
-        category: 'it',
+        category: Category[0].name,
+        //category: 'it',
         options: Category,
         word: {
             ru: Words[0].ru,
@@ -52,16 +52,12 @@ var home_app = new Vue({
         },
         startWord: function () {
             this.wordCnt = 0;
-            this.category = 'it';
             this.changeWord();
         },
         changeWord: function() {
             this.word.ru =  this.internalWords[this.wordCnt].ru;
             this.word.en =  this.internalWords[this.wordCnt].en;
             this.word.tr =  this.internalWords[this.wordCnt].tr;
-            //this.word.ru =  Words[this.wordCnt].ru;
-            //this.word.en =  Words[this.wordCnt].en;
-            //this.word.tr =  Words[this.wordCnt].tr;
         },
         changeCat: function (event) {
             this.startWord();
