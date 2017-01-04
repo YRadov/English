@@ -1,0 +1,113 @@
+/* --------------- базовые настройки ---------*/
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #f5f5f5;
+  /*background:#20649b url(../images/bg-body.png) center bottom no-repeat;*/
+  /*color: #fff;*/
+  text-align: left;
+  font-size: 1em;
+  /* используем безопасные шрифтовые CSS стеки */
+  min-height: 100%;
+  /*font-family:UbuntuLight;*/
+}
+a,
+a:visited {
+  /* порядок правил для ссылок имеет значение */
+  color: #fff;
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+a:focus,
+a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+img {
+  max-width: 100%;
+}
+.clr {
+  clear: both;
+}
+.clearfix:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+.manag-btn {
+  text-transform: uppercase;
+}
+#wrap {
+  min-width: 320px;
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100%;
+  position: relative;
+}
+/*Шапка*/
+#header {
+  height: 50px;
+  background-color: #ddd;
+  align-items: center;
+}
+#header .title {
+  font-size: 2em;
+}
+/*Контент*/
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-bottom: 50px;
+  min-height: 400px;
+}
+#content .flex-content {
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+/*Подвал*/
+#footer {
+  height: 50px;
+  background-color: #ddd;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+#footer .flex {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+#footer .flex .footer-item {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #000;
+}
+.content {
+  padding: 15px;
+}
+/* --------------- /базовые настройки ---------*/

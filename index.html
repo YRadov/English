@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <title>ENGLISH</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- My css -->
+    <link href="assets/css/default.css" rel="stylesheet">
+    <link href="assets/css/site.css" rel="stylesheet">
+
+</head>
+<body>
+<!-- ---------------------START------------------------------------------- -->
+<div id="wrap" class="home_app">
+    <!--Шапка-->
+    <div id="header" class="flex">
+        <h1 class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
+    </div>
+    <!--Контент-->
+    <div id="content">
+        <h1 class="text-uppercase text-center text-danger">
+            Category:
+            <select v-model="category" v-on:change="changeCat" id="category">
+                <option v-for="option in options" :value="option.name">
+                    {{ option.name }}
+                </option>
+            </select>
+        </h1>
+        <div class="flex m_top_10">
+            <button @click="switchEn" :class="[ lang.en ? 'btn-primary' : 'btn-danger' ]" type="button"
+                    class="btn btn-primary manag-btn" style="flex-grow: 2;">en
+            </button>
+            <button @click="switchEnRu" type="button" class="btn btn-primary manag-btn" style="flex-grow: 1;">en-ru
+            </button>
+            <button @click="switchRu" :class="{ 'btn-primary' : lang.ru, 'btn-danger' : !lang.ru }" type="button"
+                    class="btn btn-primary manag-btn" style="flex-grow: 2;">ru
+            </button>
+        </div>
+        <div class="flex-content">
+            <p style="font-size: 2em;" class="text-center" v-show="lang.en">{{ word.en }}</p>
+
+            <p style="font-size: 2em;" class="text-center" v-show="lang.en">{{ word.tr }}</p>
+
+            <p style="font-size: 2em;" class="text-center" v-show="lang.ru">{{ word.ru }}</p>
+        </div>
+        <div class="flex m_top_10">
+            <button @click="prevWord" type="button" class="btn btn-default manag-btn" style="flex-grow: 2;">
+                <i class="fa fa-backward fa-2x green" aria-hidden="true"></i>
+            </button>
+            <button @click="startWord" type="button" class="btn btn-default manag-btn" style="flex-grow: 1;">
+                <i class="fa fa-stop-circle-o fa-2x red" aria-hidden="true"></i>
+            </button>
+            <button @click="nextWord" type="button" class="btn btn-default manag-btn" style="flex-grow: 2;">
+                <i class="fa fa-forward fa-2x green" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <!--Подвал-->
+    <div id="footer">
+        <div class="flex">
+            <div class="footer-item btn btn-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
+            <div class="footer-item btn btn-primary"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+            </div>
+            <div class="footer-item btn btn-primary"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="footer-item btn btn-primary"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+        </div>
+    </div>
+</div>
+<!-- ----------------------END-------------------------------------------- -->
+<div class="all-scripts">
+    <!-- jQuery -->
+    <script src="assets/js/jquery-1.12.0.min.js"></script>
+    <!-- Underscore -->
+    <script src="assets/js/underscore-min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- DICTIONARY -->
+    <script src="dictionary.js"></script>
+    <!-- VueJS -->
+    <script src="assets/js/vue.js"></script>
+    <script src="assets/js/vue-router.js"></script>
+    <script src="assets/js/vue-resource.js"></script>
+    <!-- MyJS -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/site.js"></script>
+</div>
+</body>
+</html>
