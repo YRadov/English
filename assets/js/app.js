@@ -1,3 +1,6 @@
+//МАССИВ СЛОВ
+var WordsLength = Words.length;
+
 var home_app = new Vue({
     el: '.home_app',
     data: {

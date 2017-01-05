@@ -148,5 +148,3 @@ var Words = [
     {category: "it", en: "worth ", tr: "wɜːθ", ru: "стоимость, цена"}
 ];
 
-//МАССИВ СЛОВ
-var WordsLength = Words.length;
