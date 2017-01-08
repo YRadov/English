@@ -230,6 +230,9 @@ a:hover{
 .p_bottom_0{
     padding-bottom:0 !important;
 }
+.p-l-10{
+    padding-left: 10px !important;
+}
 .p-l-40{
     padding-left: 40px;
 }

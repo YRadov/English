@@ -71,7 +71,7 @@ img {
 #header .title {
   font-size: 2em;
 }
-/*Контент*/
+/*Контент Главная*/
 #content {
   display: flex;
   flex-direction: column;
@@ -85,6 +85,11 @@ img {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+}
+/*Контент SEARCH*/
+#search .flex-content {
+  border-top: 1px solid #000;
+  margin-top: 10px;
 }
 /*Подвал*/
 #footer {

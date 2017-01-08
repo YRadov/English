@@ -23,8 +23,11 @@
     <!-- HEADER -->
     <div id="header" class="flex">
         <h1 v-if="page.home" class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
+
         <h1 v-if="page.search" class="text-center text-uppercase text-primary search title">search words</h1>
+
         <h1 v-if="page.add" class="text-center text-uppercase text-primary add title">add new words</h1>
+
         <h1 v-if="page.info" class="text-center text-uppercase text-primary info title">app info</h1>
     </div>
 
@@ -69,8 +72,21 @@
         </div>
     </div>
 
-    <!-- CONTENT INFO-->
-    <div id="search">
+    <!-- CONTENT SEARCH-->
+    <div v-if="page.search" id="search">
+        <div class="input-group m_top_10">
+            <span class="input-group-addon" id="addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+            <input v-model="q" type="text" class="form-control p-l-10" placeholder="Search..."
+                   aria-describedby="addon1">
+        </div>
+
+        <div class="flex-content" v-for="item in allWords">
+            <p style="font-size: 2em;" class="text-center">{{ item.en }}</p>
+
+            <p style="font-size: 2em;color:red;" class="text-center">[{{ item.tr }}]</p>
+
+            <p style="font-size: 2em;" class="text-center">{{ item.ru }}</p>
+        </div>
 
     </div>
 
@@ -80,15 +96,18 @@
     </div>
 
 
-
     <!-- FOOTER-->
     <div id="footer">
         <div class="flex">
-            <div @click="pageHome" class="footer-item btn btn-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
-            <div @click="pageSearch" class="footer-item btn btn-primary"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+            <div @click="pageHome" class="footer-item btn btn-primary"><i class="fa fa-home fa-2x"
+                                                                          aria-hidden="true"></i></div>
+            <div @click="pageSearch" class="footer-item btn btn-primary"><i class="fa fa-question-circle fa-2x"
+                                                                            aria-hidden="true"></i>
             </div>
-            <div @click="pageAdd" class="footer-item btn btn-primary"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></div>
-            <div @click="pageInfo" class="footer-item btn btn-primary"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div @click="pageAdd" class="footer-item btn btn-primary"><i class="fa fa-plus-circle fa-2x"
+                                                                         aria-hidden="true"></i></div>
+            <div @click="pageInfo" class="footer-item btn btn-primary"><i class="fa fa-info-circle fa-2x"
+                                                                          aria-hidden="true"></i></div>
         </div>
     </div>
 </div>

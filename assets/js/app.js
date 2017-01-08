@@ -10,7 +10,6 @@ var home_app = new Vue({
         },
         wordCnt: 0,
         category: Category[0].name,
-        //category: 'it',
         options: Category,
         word: {
             ru: Words[0].ru,
@@ -22,7 +21,9 @@ var home_app = new Vue({
             search: false,
             add: false,
             info: false
-        }
+        },
+        allWords: Words,
+        q: 'test'
     },
     computed: {
         internalWords: function () {
