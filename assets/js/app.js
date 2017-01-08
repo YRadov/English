@@ -78,11 +78,27 @@ var home_app = new Vue({
         },
         // скрыть все страницы
         pagesHide: function  () {
-
+            this.page = _.mapObject(this.page, function (val, key) {
+               return val = false;
+            });
         },
         // переключение страниц
         pageHome: function (event) {
-            this.startWord();
+            this.pagesHide();
+            this.page.home = true;
+        },
+        pageSearch: function (event) {
+            this.pagesHide();
+            this.page.search = true;
+        },
+        pageAdd: function (event) {
+            this.pagesHide();
+            this.page.add = true;
+        },
+        pageInfo: function (event) {
+            this.pagesHide();
+            this.page.info = true;
+
         }
     }
 });

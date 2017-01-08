@@ -20,12 +20,16 @@
 <body>
 <!-- ---------------------START------------------------------------------- -->
 <div id="wrap" class="home_app">
-    <!--Шапка-->
+    <!-- HEADER -->
     <div id="header" class="flex">
         <h1 v-if="page.home" class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
-        <h1 v-if="page.info" class="text-center text-uppercase text-primary info">app info</h1>
+        <h1 v-if="page.search" class="text-center text-uppercase text-primary search title">search words</h1>
+        <h1 v-if="page.add" class="text-center text-uppercase text-primary add title">add new words</h1>
+        <h1 v-if="page.info" class="text-center text-uppercase text-primary info title">app info</h1>
     </div>
-    <!--КОНТЕНТ ГЛАВНАЯ-->
+
+
+    <!-- CONTENT ГЛАВНАЯ-->
     <div v-if="page.home" id="content">
         <h1 class="text-uppercase text-center text-danger">
             Category:
@@ -64,14 +68,27 @@
             </button>
         </div>
     </div>
-    <!--Подвал-->
+
+    <!-- CONTENT INFO-->
+    <div id="search">
+
+    </div>
+
+    <!-- CONTENT INFO-->
+    <div v-if="page.info" id="info">
+        <h1 class="m_top_20 m_left_20">Версия программы: v0.0.2</h1>
+    </div>
+
+
+
+    <!-- FOOTER-->
     <div id="footer">
         <div class="flex">
-            <div class="footer-item btn btn-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
-            <div class="footer-item btn btn-primary"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
+            <div @click="pageHome" class="footer-item btn btn-primary"><i class="fa fa-home fa-2x" aria-hidden="true"></i></div>
+            <div @click="pageSearch" class="footer-item btn btn-primary"><i class="fa fa-question-circle fa-2x" aria-hidden="true"></i>
             </div>
-            <div class="footer-item btn btn-primary"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></div>
-            <div class="footer-item btn btn-primary"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div @click="pageAdd" class="footer-item btn btn-primary"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></div>
+            <div @click="pageInfo" class="footer-item btn btn-primary"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
         </div>
     </div>
 </div>
