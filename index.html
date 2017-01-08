@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="Английский, изучение инотранных слов, иностранные языки, как учить слова">
+    <meta name="description" content="Программа для изучения иностранных слов. Заменяет Бумажные карточки со словами.">
 
     <title>ENGLISH</title>
 
@@ -22,10 +22,11 @@
 <div id="wrap" class="home_app">
     <!--Шапка-->
     <div id="header" class="flex">
-        <h1 class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
+        <h1 v-if="page.home" class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
+        <h1 v-if="page.info" class="text-center text-uppercase text-primary info">app info</h1>
     </div>
-    <!--Контент-->
-    <div id="content">
+    <!--КОНТЕНТ ГЛАВНАЯ-->
+    <div v-if="page.home" id="content">
         <h1 class="text-uppercase text-center text-danger">
             Category:
             <select v-model="category" v-on:change="changeCat" id="category">
@@ -47,7 +48,7 @@
         <div class="flex-content">
             <p style="font-size: 2em;" class="text-center" v-show="lang.en">{{ word.en }}</p>
 
-            <p style="font-size: 2em;" class="text-center" v-show="lang.en">{{ word.tr }}</p>
+            <p style="font-size: 2em;color:red;" class="text-center" v-show="lang.en">[{{ word.tr }}]</p>
 
             <p style="font-size: 2em;" class="text-center" v-show="lang.ru">{{ word.ru }}</p>
         </div>
