@@ -1,0 +1,1 @@
+console.log(localStorage.getItem('login'), localStorage.getItem('email'), localStorage.getItem('pass'));

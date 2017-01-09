@@ -28,7 +28,11 @@ var home_app = new Vue({
             search: false,
             add: false,
             info: false
-        }
+        },
+        login: localStorage.getItem('login')? localStorage.getItem('login') : '',
+        email: localStorage.getItem('email')? localStorage.getItem('email') : '',
+        pass: localStorage.getItem('pass')? localStorage.getItem('pass') : '',
+        persondata: false
     },
     computed: {
         internalWords: function () {
@@ -106,6 +110,24 @@ var home_app = new Vue({
             this.page.info = true;
             console.log(this.allWords);
 
+        },
+        // показать/скрыть учетные данные
+        personData: function () {
+            this.persondata = this.persondata? false : true;
+        },
+        // установить учетные данные
+        setPersonData: function (event) {
+            localStorage.setItem('login', this.login);
+            localStorage.setItem('email', this.email);
+            localStorage.setItem('pass', this.pass);
+        },
+        clearPersonData: function (event) {
+            localStorage.setItem('login', '');
+            localStorage.setItem('email', '');
+            localStorage.setItem('pass', '');
+            this.login = localStorage.getItem('login');
+            this.email = localStorage.getItem('email');
+            this.pass = localStorage.getItem('pass');
         }
     }
 });
