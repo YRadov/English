@@ -18,8 +18,9 @@
 
 </head>
 <body>
+
 <!-- ---------------------START------------------------------------------- -->
-<div id="wrap" class="home_app">
+<div id="wrap"  v-cloak class="home_app">
     <!-- HEADER -->
     <div id="header" class="flex">
         <h1 v-if="page.home" class="text-center text-uppercase text-primary title">learn words №{{ wordCnt + 1 }}</h1>
@@ -70,30 +71,53 @@
                 <i class="fa fa-forward fa-2x green" aria-hidden="true"></i>
             </button>
         </div>
-    </div>
+    </div><!-- #content(home) -->
 
     <!-- CONTENT SEARCH-->
     <div v-if="page.search" id="search">
         <div class="input-group m_top_10">
             <span class="input-group-addon" id="addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-            <input v-model="q" type="text" class="form-control p-l-10" placeholder="Search..."
+            <input v-model="search" type="text" class="form-control p-l-10" placeholder="Search..."
                    aria-describedby="addon1">
         </div>
 
-        <div class="flex-content" v-for="item in allWords">
-            <p style="font-size: 2em;" class="text-center">{{ item.en }}</p>
+        <!--<div class="flex-content" v-repeat="item in allWords | filterBy search">-->
+            <!--<p style="font-size: 2em;" class="text-center">{{ item.en }}</p>-->
 
-            <p style="font-size: 2em;color:red;" class="text-center">[{{ item.tr }}]</p>
+            <!--<p style="font-size: 2em;color:red;" class="text-center">[{{ item.tr }}]</p>-->
 
-            <p style="font-size: 2em;" class="text-center">{{ item.ru }}</p>
+            <!--<p style="font-size: 2em;" class="text-center">{{ item.ru }}</p>-->
+        <!--</div>-->
+
+    </div><!-- #search -->
+
+    <!-- CONTENT ADD NEW WORDS-->
+    <div v-if="page.add" id="add">
+        <div class="wrap-add">
+            <div class="flash-mess"></div>
+            <form>
+                <div class="form-group">
+                    <label for="Login">Login</label>
+                    <input type="text" class="form-control" id="Login" placeholder="Login...">
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email address</label>
+                    <input type="email" class="form-control" id="Email" placeholder="Email...">
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Password...">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
         </div>
-
-    </div>
+    </div><!-- #add -->
 
     <!-- CONTENT INFO-->
     <div v-if="page.info" id="info">
         <h1 class="m_top_20 m_left_20">Версия программы: v0.0.2</h1>
-    </div>
+    </div><!-- #info -->
 
 
     <!-- FOOTER-->
@@ -112,6 +136,7 @@
     </div>
 </div>
 <!-- ----------------------END-------------------------------------------- -->
+
 <div class="all-scripts">
     <!-- jQuery -->
     <script src="assets/js/jquery-1.12.0.min.js"></script>

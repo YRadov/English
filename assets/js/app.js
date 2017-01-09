@@ -4,7 +4,14 @@ var WordsLength = Words.length;
 var home_app = new Vue({
     el: '.home_app',
     data: {
-        lang:{
+        allWords: [
+            {en: 'a', tr: 'a', ru: 'a'},
+            {en: 'b', tr: 'a', ru: 'b'}
+        ],
+        //allWords: Words,
+        search: 'test',
+
+        lang: {
             ru: true,
             en: true
         },
@@ -21,9 +28,7 @@ var home_app = new Vue({
             search: false,
             add: false,
             info: false
-        },
-        allWords: Words,
-        q: 'test'
+        }
     },
     computed: {
         internalWords: function () {
@@ -68,19 +73,19 @@ var home_app = new Vue({
             this.changeWord();
         },
         // изменение одного слова
-        changeWord: function() {
-            this.word.ru =  this.internalWords[this.wordCnt].ru;
-            this.word.en =  this.internalWords[this.wordCnt].en;
-            this.word.tr =  this.internalWords[this.wordCnt].tr;
+        changeWord: function () {
+            this.word.ru = this.internalWords[this.wordCnt].ru;
+            this.word.en = this.internalWords[this.wordCnt].en;
+            this.word.tr = this.internalWords[this.wordCnt].tr;
         },
         // смена категории
         changeCat: function (event) {
             this.startWord();
         },
         // скрыть все страницы
-        pagesHide: function  () {
+        pagesHide: function () {
             this.page = _.mapObject(this.page, function (val, key) {
-               return val = false;
+                return val = false;
             });
         },
         // переключение страниц
@@ -99,7 +104,9 @@ var home_app = new Vue({
         pageInfo: function (event) {
             this.pagesHide();
             this.page.info = true;
+            console.log(this.allWords);
 
         }
     }
 });
+
