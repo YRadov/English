@@ -35,7 +35,7 @@ input, select, button, textarea {
 	outline: none;
 }
 input[type="text"], input[type="password"], textarea {
-	padding: 0; 				/* убираем внутренние отступы для текстовых полей */
+	padding: 0 0 0 10px; 				/* убираем внутренние отступы для текстовых полей */
 }
 input[type="checkbox"] { 		/* вертикальное выравнивание чекбоксов и радиобатонов относительно меток */
 	vertical-align: bottom;
@@ -226,6 +226,9 @@ a:hover{
 }
 .p_10{
     padding:10px;
+}
+.p_20{
+    padding:20px;
 }
 .p_bottom_0{
     padding-bottom:0 !important;
